@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Invitation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            color: #D4A373;
+            background-color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            position: relative;
+            color: #fff;
+        }
+        .header img {
+            width: 100%;
+            height: auto;
+        }
+        .header .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+            flex-direction: column;
+        }
+        .header .overlay h1 {
+            font-size: 4em;
+            margin: 0 10px;
+            padding: 10px;
+            font-weight: normal;
+        }
+        .header .overlay p {
+            font-size: 1.2em;
+            margin: 0 10px;
+            padding: 10px;
+        }
+        .timer {
+            font-size: 2em;
+            margin: 40px 0;
+        }
+        .timer div {
+            display: inline-block;
+            margin: 0 10px;
+        }
+        .schedule {
+            margin: 20px;
+        }
+        .schedule .event {
+            margin: 40px 0;
+        }
+        .schedule img {
+            width: 150px;
+            height: 150px;
+            border-radius: 10px;
+        }
+        @media (max-width: 600px) {
+            .header .overlay h1 {
+                font-size: 1.5em;
+            }
+            .header .overlay p {
+                font-size: 1em;
+            }
+            .timer {
+                font-size: 1.2em;
+            }
+            .schedule img {
+                width: 100px;
+                height: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <img src="couple.jpg" alt="Couple">
+    <div class="overlay">
+        <h1>Հրավիրում ենք Ձեզ մեր հարսանյաց արարողությանը ՝ սիրով Երեմ և Ջուլիանա</h1>
+    </div>
+</div>
+
+<div class="timer">
+    <div><span id="days">19</span> Օր</div>
+    <div><span id="hours">23</span> Ժամ</div>
+    <div><span id="minutes">38</span> Րոպե</div>
+    <div><span id="seconds">38</span> Վայրկյան</div>
+</div>
+
+<div class="schedule">
+    <div class="event">
+        <img src="bride.jpg" alt="Bride">
+        <p>Հարսի տուն<br>12:00</p>
+    </div>
+    <div class="event">
+        <a href="https://www.google.com/maps/place/Սուրբ+Գևորգ+եկեղեցի/@40.3150075,44.3692328,17z/data=!4m6!3m5!1s0x406a9b42242cd659:0xe2a4c8fe5b04a9b5!8m2!3d40.3150075!4d44.3718077!16s%2Fm%2F0bs4gv3?entry=ttu" target="_blank">
+            <img src="church.jpg" alt="Church">
+        </a>
+        <p>Պսակադրություն<br>14:00<br>Մուղնու Սուրբ Գևորգ եկեղեցի</p>
+    </div>
+    <div class="event">
+        <img src="groom.jpg" alt="Groom">
+        <p>Փեսայի տուն<br>16:00</p>
+    </div>
+    <div class="event">
+        <a href="https://www.google.com/maps/place/Նոր+Դվին/@40.1782526,44.2915602,15z/data=!4m6!3m5!1s0x406a94eab4d0fb39:0x686139cd2968c37c!8m2!3d40.1782526!4d44.2915602!16s%2Fg%2F11f37g7dj6?entry=ttu" target="_blank">
+            <img src="photo_2024-05-30 02.02.31.jpeg" alt="Restaurant">
+        </a>
+        <p>Հարսանյաց Բանկետ<br>17:30<br>Նոր Դվին ռեստորանային համալիր</p>
+    </div>
+    
+    </div>
+</div>
+
+<script>
+    // Set the date we're counting down to
+    var countDownDate = new Date("Jun 20, 2024 14:30:00").getTime();
+
+    // Update the count down every 1 second
+    var x = setInterval(function() {
+
+        // Get today's date and time
+        var now = new Date().getTime();
+
+        // Find the distance between now and the count down date
+        var distance = countDownDate - now;
+
+        // Time calculations for days, hours, minutes and seconds
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Output the result in an element with id="days", "hours", "minutes", "seconds"
+        document.getElementById("days").innerHTML = days;
+        document.getElementById("hours").innerHTML = hours;
+        document.getElementById("minutes").innerHTML = minutes;
+        document.getElementById("seconds").innerHTML = seconds;
+
+        // If the count down is over, write some text 
+        if (distance < 0) {
+            clearInterval(x);
+            document.querySelector(".timer").innerHTML = "EXPIRED";
+        }
+    }, 1000);
+</script>
+
+</body>
+</html>
